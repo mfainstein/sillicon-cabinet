@@ -3,9 +3,10 @@ import chalk from "chalk";
 export const ENGINES = {
     HUMAN_POWERED: "human-powered",
     CHAT_GPT: "chat-gpt",
+    CLAUDE: "claude",
     CHAT_GPT_THREE: "chat-gpt-three",
     REPLICATE__LLAMA_2_70B: "replicate-llama-2-70b",
-    REPLICATE__LLAMA_2_13B: "replicate-llama-2-13b"
+    REPLICATE__LLAMA_2_13B: "replicate-llama-2-13b",
 }
 
 export class Agent {

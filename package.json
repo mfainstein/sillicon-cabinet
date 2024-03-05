@@ -18,6 +18,7 @@
   "author": "Mark Fainstein",
   "license": "ISC",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.14.1",
     "chalk": "^5.3.0",
     "inquirer": "^9.2.11",
     "openai": "^4.4.0",

@@ -5,6 +5,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { ChatGptAgent } from './agents/chat-gpt-agent.js';
 import { ChatGptThreeAgent } from './agents/chat-gpt-three-agent.js';
+import { ClaudeAgent } from './agents/claude-agent.js';
 import { ReplicateLlama270bAgent } from './agents/replicate-llama-2-70b-agent.js';
 import { ReplicateLlama213BAgent } from './agents/replicate-llama-2-13b-agent.js';
 import { CONCLUSION_STRATEGIES, HALTING_STRATEGIES, Moderator } from './moderator.js';
@@ -12,7 +13,7 @@ import chalk from 'chalk';
 import { Discussion } from '../helpers/discussion.js';
 import { HumanPoweredAgent } from './agents/human-powered-agent.js';
 
-const COLORS = [chalk.red, chalk.blue, chalk.green, chalk.magenta, chalk.yellow, chalk.cyan];
+const COLORS = [chalk.red, chalk.blue, chalk.green, chalk.magenta, chalk.yellow, chalk.cyan, chalk.gray];
 
 function loadForumConfiguration() {
     const FORUM_CONFIGURATION_PATH = path.join(process.cwd(), '/src/cabinet/forum.json');
@@ -29,6 +30,8 @@ function createAgent(role, engine, otherRoles, color) {
             return new ChatGptAgent(role, engine, otherRoles, color);
         case ENGINES.CHAT_GPT_THREE:
             return new ChatGptThreeAgent(role, engine, otherRoles, color);
+        case ENGINES.CLAUDE:
+            return new ClaudeAgent(role, engine, otherRoles, color);
         case ENGINES.REPLICATE__LLAMA_2_70B:
             return new ReplicateLlama270bAgent(role, engine, otherRoles, color);
         case ENGINES.REPLICATE__LLAMA_2_13B:

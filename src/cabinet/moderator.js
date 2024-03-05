@@ -10,7 +10,7 @@ export const CONCLUSION_STRATEGIES = {
 
 }
 
-export const MAX_ARGUMENTS = 10;
+export const MAX_ARGUMENTS = 7;
 //TODO: allow 
 export class Moderator {
     constructor(roles, humanRoles, haltingStrategy, conclusionStrategy) {
@@ -42,11 +42,13 @@ export class Moderator {
                 + " have they arrived in a majority concencus?"
             let answer = await chatGptCall(prompt);
             if (answer === "YES") {
+                console.log("Moderator: Majority concencus has been reached.");
                 return true;
             }
         }
         if (this.haltingStrategy == HALTING_STRATEGIES.MAX_ARGUMENTS) {
             if (discussion.getArguments().length > MAX_ARGUMENTS) {
+                console.log("Moderator: Maximum arguments reached.");
                 return true;
             }
         }

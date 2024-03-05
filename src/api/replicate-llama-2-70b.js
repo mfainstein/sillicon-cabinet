@@ -15,12 +15,16 @@ export async function call(prompt, systemPrompt) {
     const spinner = ora({ spinner: 'pipe' }).start();
     try {
         const output = await replicate.run(
-            "replicate/llama-2-70b-chat:2796ee9483c3fd7aa2e171d38f4ca12251a30609463dcfd4cd76703f22e96cdf",
+            "replicate/llama-2-70b-chat:ac808388e2e9d8ed35a5bf2eaa7d83f0ad53f9e3df31a42e4eb0a0c3249b3165",
             {
                 input: {
                     prompt: prompt,
                     system_prompt: systemPrompt,
-                    max_new_tokens: 10000
+                    max_new_tokens: 10000,
+                    max_new_tokens: 500,
+                    debug: false,
+                    top_k: 50,
+                    top_p: 1,
                 }
             }
         );
