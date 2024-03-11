@@ -5,8 +5,10 @@ export const ENGINES = {
     CHAT_GPT: "chat-gpt",
     CLAUDE: "claude",
     CHAT_GPT_THREE: "chat-gpt-three",
-    REPLICATE__LLAMA_2_70B: "replicate-llama-2-70b",
-    REPLICATE__LLAMA_2_13B: "replicate-llama-2-13b",
+    // add gpt-4-turbo also!
+    // llamas are really weak, consider using google gemini instead
+    // REPLICATE__LLAMA_2_70B: "replicate-llama-2-70b",
+    // REPLICATE__LLAMA_2_13B: "replicate-llama-2-13b",
 }
 
 export class Agent {
